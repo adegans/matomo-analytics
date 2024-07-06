@@ -1,6 +1,8 @@
 # AJdG Matomo Tracker
 ## The easiest way to track visitors in Matomo. No nonsense, just stats!
 
+View on: [ajdg.solutions](https://ajdg.solutions/product/matomo-tracker/) ~ [WordPres.org](https://wordpress.org/plugins/matomo-analytics/)
+
 ## Description
 Track all the stats you need. That's the goal of **AJdG Matomo Tracker**. And it doesn't get any more simple than that.
 While other plugins are bloated with all kinds of barely-used features or add bulky dashboards. **AJdG Matomo Tracker** does not.
