@@ -29,65 +29,9 @@ Arnan de Gans and **AJdG Matomo Tracker** are not affiliated with Matomo.
 **AJdG Matomo Tracker** is fully compatible with both WordPress and ClassicPress.
 
 ## Installation
-1. Navigate to Plugins > Add New in your dashboard.
-2. Search for 'Arnan Matomo' or 'Arnan' in the plugin database and click install on the **AJdG Matomo Tracker** plugin.
-3. Activate **AJdG Matomo Tracker** when done.
-4. Navigate to Tools > Matomo Tracker to set up the plugin.
-
-## Changelog
-### 1.2.9 - 28 February, 2023
-* Tested to work with ClassicPress 1.5+
-* Updated support links
-
-### 1.2.8 - 4 October, 2022
-* Tested to work with WordPress 6.0+
-* Tested to work with ClassicPress 1.4+
-* Updated support links
-
-### 1.2.7 - 25 January, 2022
-* Tested to work with WordPress 5.9+
-
-### 1.2.6 - 31 July, 2021
-* Tested to work with WordPress 5.8+
-* Tested to work with ClassicPress 1.2+
-
-### 1.2.5 - 20 June, 2021
-* Updated readme.txt
-* Tested to work with WordPress 5.7
-
-### 1.2.3 - 27 December, 2020
-* [change] Dashboard tweaks
-* [change] Updated readme
-
-### 1.2.2 - 10 October, 2020
-* Tested to work with WordPress 5.5.1
-* [new] Internationalization support
-* [new] POT basefile for translations
-
-### 1.2.1 - 3 August, 2020
-* Tested to work with WordPress 5.5
-* [change] Dashboard tweaks
-
-### 1.2 - 23 March 2020
-* Re-Released plugin
-
-### 1.1.2 - 20 February 2020
-* [fix] DoNotTrack setting not working
-
-### 1.1.1 - 3 February 2020
-* [change] Dashboard tweaks
-* [i18n] Updated strings
-
-### 1.1 - 7 January 2020
-* [new] Feeds views tracking
-* [change] Removed more Matomo branding from the plugin :-(
-* [i18n] Updated and added strings
-
-### 1.0.1 - 22 December 2019
-* [new] WooCommerce downloads tracking
-* [fix] Improved url sanitizing for Matomo url
-* [fix] Url separator not always using the right character
-* [change] Visible plugin name
-
-### 1.0 - 11 December 2019
-* Initial version
+1. Navigate to your WordPress or ClassicPress dashboard.
+2. Navigate to the Plugins page and click 'Add New'.
+3. Search for 'Arnan matomo' or 'Matomo Analytics' in the plugin search
+4. Click install on the 'Matomo Analytics' plugin.
+5. Once installed, activate the plugin and you're ready to go.
+6. Navigate to Tools > Matomo Analytics in your dashboard to set up tracking for your Matomo installation.
