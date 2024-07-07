@@ -25,8 +25,7 @@ No nonsense, just stats tracking!
 **AJdG Matomo Tracker** works with both self-hosted (on premise) and Matomo Cloud installations.
 Check out Matomo here and register for an account on their website: [https://matomo.org](https://matomo.org).
 
-Arnan de Gans and **AJdG Matomo Tracker** are not affiliated with Matomo.
-**AJdG Matomo Tracker** is fully compatible with both WordPress and ClassicPress.
+**AJdG Matomo Tracker** is not affiliated with Matomo.
 
 ## Installation
 1. Navigate to your WordPress or ClassicPress dashboard.

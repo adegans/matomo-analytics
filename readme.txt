@@ -11,7 +11,6 @@ License: GPLv3
 The easiest way to track visitors in Matomo. No nonsense, just stats!
 
 == Description ==
-
 Track all the stats you need. That's the goal of **AJdG Matomo Tracker**. And it doesn't get any more simple than that.
 While other plugins are bloated with all kinds of barely-used features or add bulky dashboards. **AJdG Matomo Tracker** does not.
 
@@ -33,8 +32,7 @@ No nonsense, just stats tracking!
 **AJdG Matomo Tracker** works with both self-hosted (on premise) and Matomo Cloud installations.
 Check out Matomo here and register for an account on their website: [https://matomo.org](https://matomo.org).
 
-Arnan de Gans and **AJdG Matomo Tracker** are not affiliated with Matomo.
-**AJdG Matomo Tracker** is fully compatible with both WordPress and ClassicPress.
+**AJdG Matomo Tracker** is not affiliated with Matomo.
 
 == Changelog ==
 
