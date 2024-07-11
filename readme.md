@@ -1,5 +1,7 @@
-# AJdG Matomo Tracker
-## The easiest way to track visitors in Matomo. No nonsense, just stats!
+# Matomo Tracker for WordPress
+### Matomo Tracker for ClassicPress 
+
+The easiest way to track visitors in Matomo. No nonsense, just stats!
 
 View on: [ajdg.solutions](https://ajdg.solutions/product/matomo-tracker/) ~ [WordPres.org](https://wordpress.org/plugins/matomo-analytics/)
 

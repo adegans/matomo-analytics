@@ -4,4 +4,5 @@
 
 .distignore
 .gitignore
+.gitattributes
 readme.md
