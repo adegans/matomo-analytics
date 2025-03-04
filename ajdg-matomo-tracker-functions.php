@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2020-2023 Arnan de Gans. All Rights Reserved.
+*  Copyright 2020-2025 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -210,8 +210,8 @@ function ajdg_matomo_has_error() {
 -------------------------------------------------------------*/
 function ajdg_matomo_action_links($links) {
 	$links['ajdg-matomo-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=matomo-tracker'), 'Settings');
-	$links['ajdg-matomo-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/forums/forum/matomo-tracker/?mtm_campaign=matomo_tracker', 'Support');
-	$links['ajdg-matomo-ajdg'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/?mtm_campaign=matomo_tracker', 'ajdg.solutions');
+	$links['ajdg-matomo-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', 'Support');
+	$links['ajdg-matomo-ajdg'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/', 'ajdg.solutions');
 
 	return $links;
 }
@@ -260,7 +260,7 @@ function ajdg_matomo_nonce_error() {
 	echo '	<h2 style="text-align: center;">'.__('Oh no! Something went wrong!', 'ajdg-matomo-tracker').'</h2>';
 	echo '	<p style="text-align: center;">'.__('WordPress was unable to verify the authenticity of the url you have clicked. Verify if the url used is valid or log in via your browser.', 'ajdg-matomo-tracker').'</p>';
 	echo '	<p style="text-align: center;">'.__('If you have received the url you want to visit via email, you are being tricked!', 'ajdg-matomo-tracker').'</p>';
-	echo '	<p style="text-align: center;">'.__('Contact support if the issue persists:', 'ajdg-matomo-tracker').' <a href="https://ajdg.solutions/forums/forum/matomo-tracker/?mtm_campaign=matomo_tracker" title="AJdG Solutions Support" target="_blank">Support forum</a>.</p>';
+	echo '	<p style="text-align: center;">'.__('Contact support if the issue persists:', 'ajdg-matomo-tracker').' <a href="https://support.ajdg.net/" title="AJdG Solutions Support" target="_blank">Support forum</a>.</p>';
 }
 
 /*-------------------------------------------------------------

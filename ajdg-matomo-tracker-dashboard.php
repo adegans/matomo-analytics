@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2020-2023 Arnan de Gans. All Rights Reserved.
+*  Copyright 2020-2025 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -100,7 +100,7 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 				<div id="stats" class="ajdg-postbox-content">
 					<h2><?php _e('Help with development', 'ajdg-matomo-tracker'); ?></h2>
 					<p><?php _e('AJdG Matomo Tracker is developed independently from Matomo and Arnan is not affiliated with Matomo or their team. Developing plugins like this, however small, takes a lot of time and resources. If you like AJdG Matomo Tracker or you find it useful please consider making a donation. Thanks for your support!', 'ajdg-matomo-tracker'); ?></p>
-					<p><a class="button-primary" href="https://ajdg.solutions/go/donate" target="_blank"><?php _e('Donate via Paypal', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://wordpress.org/support/plugin/matomo-analytics/reviews?rate=5#postform" target="_blank"><?php _e('Write review on wordpress.org', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://ajdg.solutions/forums/forum/matomo-tracker/?mtm_campaign=matomo_tracker" target="_blank"><?php _e('Support Forum', 'ajdg-matomo-tracker'); ?></a></p>
+					<p><a class="button-primary" href="https://arnan.me/donate.html" target="_blank"><?php _e('Donate via Paypal', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://wordpress.org/support/plugin/matomo-analytics/reviews?rate=5#postform" target="_blank"><?php _e('Write review on wordpress.org', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://support.ajdg.net/" target="_blank"><?php _e('Support', 'ajdg-matomo-tracker'); ?></a></p>
 
 					<h2><?php _e('News and Updates', 'ajdg-matomo-tracker'); ?></h2>
 					<p><a href="http://ajdg.solutions/feed/" target="_blank" title="Subscribe to the AJdG Solutions RSS feed!" class="button-primary"><i class="icn-rss"></i>Subscribe via RSS feed</a> <em>No account required!</em></p>

@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: AJdG Matomo Tracker
-Plugin URI: https://ajdg.solutions/product/matomo-tracker-for-wordpress/?mtm_campaign=ajdg_matomo_tracker
+Plugin URI: https://ajdg.solutions/product/matomo-tracker-for-wordpress/
 Author: Arnan de Gans
-Author URI: https://www.arnan.me/?mtm_campaign=ajdg_matomo_tracker
+Author URI: https://www.arnan.me/
 Description: Easily add the Matomo tracking code to your websites footer and manage options for it from the dashboard.
-Version: 1.2.9
+Version: 1.2.10
 Text Domain: ajdg-matomo-tracker
 Domain Path: /languages/
 License: GPLv3
@@ -13,7 +13,7 @@ License: GPLv3
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2020-2023 Arnan de Gans. All Rights Reserved.
+*  Copyright 2020-2025 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
