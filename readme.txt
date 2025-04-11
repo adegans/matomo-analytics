@@ -1,40 +1,45 @@
-=== AJdG Matomo Tracker ===
+=== Matomo Tracker ===
 Contributors: adegans
 Tags: analytics, web stats, stats, tracker, matomo
 Donate link: https://www.arnan.me/donate.html
 Requires at least: 4.9
-Tested up to: 6.7.2
+Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.10
+Stable tag: 1.2.11
 License: GPLv3
 
 The easiest way to track visitors in Matomo. No nonsense, just stats!
 
 == Description ==
-Track all the stats you need. That's the goal of **AJdG Matomo Tracker**. And it doesn't get any more simple than that.
-While other plugins are bloated with all kinds of barely-used features or add bulky dashboards. **AJdG Matomo Tracker** does not.
+Track all the stats you need. That's the goal of **Matomo Tracker**. And it doesn't get any more simple than that.
+While other plugins are bloated with all kinds of barely-used features or add bulky dashboards. **Matomo Tracker** does not.
 
 Easily add the Matomo tracking code to your websites footer in under a minute with only a few clicks. Optionally extend the tracker with some useful features that both help you understand your visitors better and help you optimize the effectiveness of your website, and even SEO.
 
-**AJdG Matomo Tracker** is designed to be barebones but still provide a complete experience for the majority of people.
+**Matomo Tracker** is designed to be barebones but still provide a complete experience for the majority of people.
 Collect all the stats you need via the built-in Matomo tracking code.
 Easily track dead links or in-links that end up on 404 error pages so you can effectively take action and fix those issues. As a result, Google will like you more!
 
 Do you use RSS and Atom feeds? Ever wondered how effective they are? Yeah, me too!
-With **AJdG Matomo Tracker** you can track incoming clicks from your RSS and Atom feeds.
+With **Matomo Tracker** you can track incoming clicks from your RSS and Atom feeds.
 
 Matomo is a great tool if you don't want to use Jetpack Stats, WP-Statistics and especially Google Analytics.
-Or simply if you want a second opinion. On my own websites I've used both Jetpack Stats and Matomo - Ofcourse I used **AJdG Matomo Tracker** to add the Matomo tracking code to my footer.
+Or simply if you want a second opinion. On my own websites I've used both Jetpack Stats and Matomo - Ofcourse I used **Matomo Tracker** to add the Matomo tracking code to my footer.
 Matomo can replace Google Analytics. If you use their self-hosted solution all data you record is yours without big data watching over your shoulder.
 
 No nonsense, just stats tracking!
 
-**AJdG Matomo Tracker** works with both self-hosted (on premise) and Matomo Cloud installations.
+**Matomo Tracker** works with both self-hosted (on premise) and Matomo Cloud installations.
 Check out Matomo here and register for an account on their website: [https://matomo.org](https://matomo.org).
 
-**AJdG Matomo Tracker** is not affiliated with Matomo.
+**Matomo Tracker** is not affiliated with Matomo.
 
 == Changelog ==
+
+= 1.2.11 - April 11, 2025 =
+* [tested] with WordPress 6.8
+* [change] Dashboard tweaks
+* [update] Action links
 
 = 1.2.10 - March 4, 2025 =
 * [tested] with WordPress 6.7
@@ -104,14 +109,14 @@ Get the latest version for improved tracking in Matomo.
 == Installation ==
 
 1. Navigate to Plugins > Add New in your dashboard.
-2. Search for 'Arnan Matomo' or 'Arnan' in the plugin database and click install on the **AJdG Matomo Tracker** plugin.
-3. Activate **AJdG Matomo Tracker** when done.
+2. Search for 'Arnan Matomo' or 'Arnan' in the plugin database and click install on the **Matomo Tracker** plugin.
+3. Activate **Matomo Tracker** when done.
 4. Navigate to Tools > Matomo Tracker to set up the plugin.
 
 == Frequently Asked Questions ==
 
 = Why do I need this plugin? =
-You'll need **AJdG Matomo Tracker** to easily add the Matomo tracking code to your site. No editing of code required.
+You'll need **Matomo Tracker** to easily add the Matomo tracking code to your site. No editing of code required.
 This also means that if your theme gets an update, the tracker stays in place.
 
 = Is Matomo any good? =

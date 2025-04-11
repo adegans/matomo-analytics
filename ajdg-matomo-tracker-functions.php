@@ -103,7 +103,7 @@ function ajdg_matomo_save_settings() {
 		update_option('ajdg_matomo_track_feed_impressions', $track_feed_impressions);
 		update_option('ajdg_matomo_high_accuracy', $track_high_accuracy);
 
-		ajdg_matomo_return('matomo-tracker', 100);
+		ajdg_matomo_return('ajdg-matomo-tracker', 100);
 		exit;
 	} else {
 		ajdg_matomo_nonce_error();
@@ -164,7 +164,7 @@ function ajdg_matomo_notifications_dashboard() {
 	if($review_banner != 1 AND $review_banner < (current_time('timestamp') - (7 * DAY_IN_SECONDS))) {
 		echo '<div class="ajdg-notification notice" style="">';
 		echo '	<div class="ajdg-notification-logo" style="background-image: url(\''.plugins_url('/images/notification.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-notification-message">Hey there <strong>'.$displayname.'</strong>! You have been using <strong>AJdG Matomo Tracker</strong> for a few days.<br />If you like the plugin, please <strong>write a review</strong>.<br />If you have questions, complaints or something else that does not belong in a review, please use the <a href="https://wordpress.org/support/plugin/matomo-analytics/">support forum</a>!</div>';
+		echo '	<div class="ajdg-notification-message">Hey there <strong>'.$displayname.'</strong>! You have been using <strong>Matomo Tracker</strong> for a few days.<br />If you like the plugin, please <strong>write a review</strong>.<br />If you have questions, complaints or something else that does not belong in a review, please use the <a href="https://wordpress.org/support/plugin/matomo-analytics/">support forum</a>!</div>';
 		echo '	<div class="ajdg-notification-cta">';
 		echo '		<a href="https://wordpress.org/support/plugin/matomo-analytics/reviews?rate=5#postform" class="ajdg-notification-act button-primary">Write a Review</a>';
 		echo '		<a href="tools.php?page=matomo-tracker&hide=1" class="ajdg-notification-dismiss">Maybe later</a>';
@@ -180,7 +180,7 @@ function ajdg_matomo_notifications_dashboard() {
 		foreach($has_error as $error => $message) {
 			echo '&raquo; '.$message.'<br />';
 		}
-		echo '	<br /><a href="'.admin_url('/tools.php?page=matomo-tracker').'">'.__('Check your settings', 'ajdg-matomo-tracker').'</a>!';
+		echo '	<a href="'.admin_url('/tools.php?page=ajdg-matomo-tracker').'">'.__('Check your settings', 'ajdg-matomo-tracker').'</a>!';
 		echo '	</div>';
 		echo '</div>';
 	}
@@ -195,8 +195,12 @@ function ajdg_matomo_has_error() {
 	$siteurl = get_option('ajdg_matomo_siteurl');
 	$track_active = get_option('ajdg_matomo_active');
 
-	if($track_active == 'yes' AND (empty($siteid) OR empty($siteurl))) {
-		$error['matomo_site_details'] = __('You activated the tracker but the Site ID and/or Site URL is empty.', 'ajdg-matomo-tracker');
+	if($track_active == 'yes' AND empty($siteid)) {
+		$error['matomo_site_id'] = __('You activated the Matomo Analytics Tracker but the Site ID is not set.', 'ajdg-matomo-tracker');
+	}
+
+	if($track_active == 'yes' AND empty($siteurl)) {
+		$error['matomo_site_url'] = __('You activated the Matomo Analytics Tracker but the Site URL is not configured.', 'ajdg-matomo-tracker');
 	}
 
 	$error = (isset($error) AND is_array($error)) ? $error : false;
@@ -209,8 +213,8 @@ function ajdg_matomo_has_error() {
  Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_matomo_action_links($links) {
-	$links['ajdg-matomo-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=matomo-tracker'), 'Settings');
-	$links['ajdg-matomo-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', 'Support');
+	$links['ajdg-matomo-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=ajdg-matomo-tracker'), 'Settings');
+	$links['ajdg-matomo-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/knowledgebase.php', 'Support');
 	$links['ajdg-matomo-ajdg'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/', 'ajdg.solutions');
 
 	return $links;
@@ -229,7 +233,7 @@ function ajdg_matomo_return($page, $status, $args = null) {
 		$arguments = wp_parse_args($args, $defaults);
 		$redirect = 'tools.php?page=' . $page . '&'.http_build_query($arguments);
 	} else {
-		$redirect = 'tools.php?page=matomo-tracker';
+		$redirect = 'tools.php?page=ajdg-matomo-tracker';
 	}
 
 	wp_redirect($redirect);

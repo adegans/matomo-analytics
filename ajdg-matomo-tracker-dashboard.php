@@ -30,7 +30,7 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 				<h2 class="ajdg-postbox-title"><?php _e('Settings', 'ajdg-matomo-tracker'); ?></h2>
 				<div id="report-form" class="ajdg-postbox-content">
 
-					<form name="report" id="post" method="post" action="tools.php?page=matomo-tracker">
+					<form name="report" id="post" method="post" action="tools.php?page=ajdg-matomo-tracker">
 						<?php wp_nonce_field('matomo_nonce','matomo_nonce'); ?>
 
 						<h2><?php _e('Required options', 'ajdg-matomo-tracker'); ?></h2>
@@ -96,17 +96,54 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 		<div id="right-column" class="ajdg-postbox-container">
 
 			<div class="ajdg-postbox">
-				<h2 class="ajdg-postbox-title"><?php _e('Support & News', 'ajdg-matomo-tracker'); ?></h2>
-				<div id="stats" class="ajdg-postbox-content">
-					<h2><?php _e('Help with development', 'ajdg-matomo-tracker'); ?></h2>
-					<p><?php _e('AJdG Matomo Tracker is developed independently from Matomo and Arnan is not affiliated with Matomo or their team. Developing plugins like this, however small, takes a lot of time and resources. If you like AJdG Matomo Tracker or you find it useful please consider making a donation. Thanks for your support!', 'ajdg-matomo-tracker'); ?></p>
-					<p><a class="button-primary" href="https://arnan.me/donate.html" target="_blank"><?php _e('Donate via Paypal', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://wordpress.org/support/plugin/matomo-analytics/reviews?rate=5#postform" target="_blank"><?php _e('Write review on wordpress.org', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://support.ajdg.net/" target="_blank"><?php _e('Support', 'ajdg-matomo-tracker'); ?></a></p>
+				<h2 class="ajdg-postbox-title"><?php _e('Matomo Tracker', 'ajdg-matomo-tracker'); ?></h2>
+				<div id="general" class="ajdg-postbox-content">
+					<p><strong><?php _e('Get help with Matomo Tracker', 'ajdg-matomo-tracker'); ?></strong></p>
+					<p><?php _e('Use the buttons below if you have any questions about using Matomo Tracker. I am always happy to help!', 'ajdg-matomo-tracker'); ?></p>
 
-					<h2><?php _e('News and Updates', 'ajdg-matomo-tracker'); ?></h2>
-					<p><a href="http://ajdg.solutions/feed/" target="_blank" title="Subscribe to the AJdG Solutions RSS feed!" class="button-primary"><i class="icn-rss"></i>Subscribe via RSS feed</a> <em>No account required!</em></p>
+					<p><a class="button-primary" href="https://ajdg.solutions/product/support-ticket/" target="_blank" title="<?php _e('Buy support ticket', 'ajdg-matomo-tracker'); ?>"><?php _e('Buy a support ticket', 'ajdg-matomo-tracker'); ?></a> <a class="button-primary" href="https://support.ajdg.net/knowledgebase.php" target="_blank" title="<?php _e('Knowledgebase', 'ajdg-matomo-tracker'); ?>"><?php _e('Knowledgebase', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://wordpress.org/support/plugin/matomo-analytics/" target="_blank" title="<?php _e('Forum on wordpress.org', 'ajdg-matomo-tracker'); ?>"><?php _e('Forum on wordpress.org', 'ajdg-matomo-tracker'); ?></a></p>
+
+					<p><strong><?php _e('Support Matomo Tracker', 'ajdg-matomo-tracker'); ?></strong></p>
+					<p><?php _e('Consider writing a review or making a donation if you like the plugin or if you find the plugin useful. Thanks for your support!', 'ajdg-matomo-tracker'); ?></p>
+
+					<p><a class="button-primary" href="https://ajdg.solutions/product/token-of-thanks/" target="_blank" title="<?php _e('Support me with a token of thanks', 'ajdg-matomo-tracker'); ?>"><?php _e('Gift a token of thanks', 'ajdg-matomo-tracker'); ?></a> <a class="button-secondary" href="https://wordpress.org/support/plugin/matomo-analytics/reviews?rate=5#postform" target="_blank" title="<?php _e('Write review on wordpress.org', 'ajdg-matomo-tracker'); ?>"><?php _e('Write review on wordpress.org', 'ajdg-matomo-tracker'); ?></a></p>
+
+					<p><strong><?php _e('Plugins and services', 'ajdg-matomo-tracker'); ?></strong></p>
+					<table width="100%">
+						<tr>
+							<td width="50%">
+								<div class="ajdg-sales-widget" style="display: inline-block; margin-right:2%;">
+									<a href="https://ajdg.solutions/product/adrotate-pro-single/" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/monetize-your-site.jpg", __FILE__); ?>" alt="AdRotate Professional" width="228" height="120"></div></a>
+									<a href="https://ajdg.solutions/product/adrotate-pro-single/" target="_blank"><div class="title"><?php _e('AdRotate Professional', 'ajdg-matomo-tracker'); ?></div></a>
+									<div class="sub_title"><?php _e('WordPress Plugin', 'ajdg-matomo-tracker'); ?></div>
+									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/product/adrotate-pro-single/" target="_blank">Starting at &euro; 39,-</a></div>
+									<hr>
+									<div class="description"><?php _e('Place any kind of advert including those from Google Adsense or affiliate links on your WordPress and ClassicPress website.', 'ajdg-matomo-tracker'); ?></div>
+								</div>
+							</td>
+							<td>
+								<div class="ajdg-sales-widget" style="display: inline-block;">
+									<a href="https://ajdg.solutions/plugins/" target="_blank"><div class="header"><img src="<?php echo plugins_url("/images/offers/more-plugins.jpg", __FILE__); ?>" alt="AJdG Solutions Plugins" width="228" height="120"></div></a>
+									<a href="https://ajdg.solutions/plugins/" target="_blank"><div class="title"><?php _e('All my plugins', 'ajdg-matomo-tracker'); ?></div></a>
+									<div class="sub_title"><?php _e('WordPress and ClassicPress', 'ajdg-matomo-tracker'); ?></div>
+									<div class="cta"><a role="button" class="cta_button" href="https://ajdg.solutions/plugins/" target="_blank">View now</a></div>
+									<hr>
+									<div class="description"><?php _e('Excellent plugins for WordPres, ClassicPress, WooCommerce and bbPress. Most of them are completely FREE to use!', 'ajdg-matomo-tracker'); ?></div>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
+
+			<div class="ajdg-postbox">
+				<h2 class="ajdg-postbox-title"><?php _e('News & Updates', 'ajdg-matomo-tracker'); ?></h2>
+				<div id="news" class="ajdg-postbox-content">
+					<p><a href="http://ajdg.solutions/feed/" target="_blank" title="Subscribe to the AJdG Solutions RSS feed!" class="button-primary"><i class="icn-rss"></i><?php _e('Subscribe via RSS feed', 'ajdg-matomo-tracker'); ?></a> <em><?php _e('No account required!', 'ajdg-matomo-tracker'); ?></em></p>
 
 					<?php wp_widget_rss_output(array(
-						'url' => array('http://ajdg.solutions/feed/'),
+						'url' => 'http://ajdg.solutions/feed/',
 						'items' => 5,
 						'show_summary' => 1,
 						'show_author' => 0,
@@ -118,4 +155,4 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 		</div>
 	</div>
 </div>
-<center><small><?php _e('Arnan de Gans and "AJdG Matomo Tracker" are luckily not affiliated with Matomo. For support with Matomo itself check out their website.', 'ajdg-matomo-tracker'); ?></small></center>
+<center><small><?php _e('Arnan de Gans and "Matomo Tracker" are not affiliated with Matomo. For support with Matomo itself check out their website.', 'ajdg-matomo-tracker'); ?></small></center>

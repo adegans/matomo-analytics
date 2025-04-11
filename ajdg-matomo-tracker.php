@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: AJdG Matomo Tracker
+Plugin Name: Matomo Tracker
 Plugin URI: https://ajdg.solutions/product/matomo-tracker-for-wordpress/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
 Description: Easily add the Matomo tracking code to your websites footer and manage options for it from the dashboard.
-Version: 1.2.10
+Version: 1.2.11
 Text Domain: ajdg-matomo-tracker
 Domain Path: /languages/
 License: GPLv3
@@ -62,22 +62,22 @@ if(is_admin()) {
  Purpose:   Add pages to admin menus
 -------------------------------------------------------------*/
 function ajdg_matomo_dashboard_menu() {
-	add_management_page('Matomo Tracker', 'Matomo Tracker', 'manage_options', 'matomo-tracker', 'ajdg_matomo_info');
+	add_management_page('Matomo Tracker', 'Matomo Tracker', 'manage_options', 'ajdg-matomo-tracker', 'ajdg_matomo_dashboard');
 }
 
 /*-------------------------------------------------------------
- Name:      ajdg_matomo_info
+ Name:      ajdg_matomo_dashboard
  Purpose:   Admin general info page
 -------------------------------------------------------------*/
-function ajdg_matomo_info() {
-	$status = $do = '';
+function ajdg_matomo_dashboard() {
+	$status = '';
 	if(isset($_GET['status'])) $status = esc_attr($_GET['status']);
 
 	$current_user = wp_get_current_user();
 	?>
 
 	<div class="wrap">
-		<h1><?php _e('AJdG Matomo Tracker', 'ajdg-matomo-tracker'); ?></h1>
+		<h1><?php _e('Matomo Tracker', 'ajdg-matomo-tracker'); ?></h1>
 
 		<?php
 		if($status > 0) ajdg_matomo_status($status);

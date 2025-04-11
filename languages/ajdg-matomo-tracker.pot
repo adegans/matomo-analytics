@@ -1,23 +1,22 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: AJdG Matomo Tracker\n"
-"POT-Creation-Date: 2022-01-25 23:51-0700\n"
+"POT-Creation-Date: 2025-04-11 12:26-0600\n"
 "PO-Revision-Date: 2020-10-10 20:12-0500\n"
 "Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
 "Language-Team: Arnan de Gans <support@ajdg.solutions>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: ajdg-matomo-tracker.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
@@ -174,43 +173,107 @@ msgstr ""
 msgid "Save options"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:99
-msgid "Support & News"
+#. Plugin Name of the plugin/theme
+#: ajdg-matomo-tracker-dashboard.php:99 ajdg-matomo-tracker.php:80
+msgid "Matomo Tracker"
 msgstr ""
 
 #: ajdg-matomo-tracker-dashboard.php:101
-msgid "Help with development"
+msgid "Get help with Matomo Tracker"
 msgstr ""
 
 #: ajdg-matomo-tracker-dashboard.php:102
 msgid ""
-"AJdG Matomo Tracker is developed independently from Matomo and Arnan is not "
-"affiliated with Matomo or their team. Developing plugins like this, however "
-"small, takes a lot of time and resources. If you like AJdG Matomo Tracker or "
-"you find it useful please consider making a donation. Thanks for your "
-"support!"
+"Use the buttons below if you have any questions about using Matomo Tracker. "
+"I am always happy to help!"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:103
-msgid "Donate via Paypal"
+#: ajdg-matomo-tracker-dashboard.php:104
+msgid "Buy support ticket"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:103
+#: ajdg-matomo-tracker-dashboard.php:104
+msgid "Buy a support ticket"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:104
+msgid "Knowledgebase"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:104
+msgid "Forum on wordpress.org"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:106
+msgid "Support Matomo Tracker"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:107
+msgid ""
+"Consider writing a review or making a donation if you like the plugin or if "
+"you find the plugin useful. Thanks for your support!"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:109
+msgid "Support me with a token of thanks"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:109
+msgid "Gift a token of thanks"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:109
 msgid "Write review on wordpress.org"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:103
-msgid "Support Forum"
+#: ajdg-matomo-tracker-dashboard.php:111
+msgid "Plugins and services"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:105
-msgid "News and Updates"
+#: ajdg-matomo-tracker-dashboard.php:117
+msgid "AdRotate Professional"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:118
+msgid "WordPress Plugin"
 msgstr ""
 
 #: ajdg-matomo-tracker-dashboard.php:121
 msgid ""
-"Arnan de Gans and \"AJdG Matomo Tracker\" are luckily not affiliated with "
-"Matomo. For support with Matomo itself check out their website."
+"Place any kind of advert including those from Google Adsense or affiliate "
+"links on your WordPress and ClassicPress website."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:127
+msgid "All my plugins"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:128
+msgid "WordPress and ClassicPress"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:131
+msgid ""
+"Excellent plugins for WordPres, ClassicPress, WooCommerce and bbPress. Most "
+"of them are completely FREE to use!"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:141
+msgid "News & Updates"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:143
+msgid "Subscribe via RSS feed"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:143
+msgid "No account required!"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:158
+msgid ""
+"Arnan de Gans and \"Matomo Tracker\" are not affiliated with Matomo. For "
+"support with Matomo itself check out their website."
 msgstr ""
 
 #: ajdg-matomo-tracker-functions.php:179
@@ -228,46 +291,45 @@ msgid "Check your settings"
 msgstr ""
 
 #: ajdg-matomo-tracker-functions.php:199
-msgid "You activated the tracker but the Site ID and/or Site URL is empty."
+msgid "You activated the Matomo Analytics Tracker but the Site ID is not set."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:246
-msgid "Settings saved"
+#: ajdg-matomo-tracker-functions.php:203
+msgid ""
+"You activated the Matomo Analytics Tracker but the Site URL is not "
+"configured."
 msgstr ""
 
 #: ajdg-matomo-tracker-functions.php:250
+msgid "Settings saved"
+msgstr ""
+
+#: ajdg-matomo-tracker-functions.php:254
 msgid "Unexpected error"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:260
+#: ajdg-matomo-tracker-functions.php:264
 msgid "Oh no! Something went wrong!"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:261
+#: ajdg-matomo-tracker-functions.php:265
 msgid ""
 "WordPress was unable to verify the authenticity of the url you have clicked. "
 "Verify if the url used is valid or log in via your browser."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:262
+#: ajdg-matomo-tracker-functions.php:266
 msgid ""
 "If you have received the url you want to visit via email, you are being "
 "tricked!"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:263
+#: ajdg-matomo-tracker-functions.php:267
 msgid "Contact support if the issue persists:"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-#: ajdg-matomo-tracker.php:80
-msgid "AJdG Matomo Tracker"
-msgstr ""
-
 #. Plugin URI of the plugin/theme
-msgid ""
-"https://ajdg.solutions/product/matomo-tracker-for-wordpress/?"
-"pk_campaign=ajdg_matomo_tracker"
+msgid "https://ajdg.solutions/product/matomo-tracker-for-wordpress/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -281,5 +343,5 @@ msgid "Arnan de Gans"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.arnan.me/?pk_campaign=ajdg_matomo_tracker"
+msgid "https://www.arnan.me/"
 msgstr ""
