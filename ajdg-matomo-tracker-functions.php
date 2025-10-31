@@ -1,7 +1,7 @@
 <?php
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2020-2025 Arnan de Gans. All Rights Reserved.
+*  Copyright 2020-2026 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -11,16 +11,7 @@
 defined('ABSPATH') or die();
 
 /*-------------------------------------------------------------
- Name:      ajdg_matomo_dashboard_styles
- Since:		1.0
--------------------------------------------------------------*/
-function ajdg_matomo_dashboard_styles() {
-	wp_enqueue_style('ajdg-matomo-admin-stylesheet', plugins_url('library/dashboard.css', __FILE__));
-}
-
-/*-------------------------------------------------------------
  Name:      ajdg_matomo_activate
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_matomo_activate() {
 	// Defaults
@@ -39,7 +30,6 @@ function ajdg_matomo_activate() {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_deactivate
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_matomo_deactivate() {
 	// Delete data
@@ -57,8 +47,32 @@ function ajdg_matomo_deactivate() {
 }
 
 /*-------------------------------------------------------------
+ Name:      ajdg_matomo_init
+-------------------------------------------------------------*/
+function ajdg_matomo_init() {
+	load_plugin_textdomain('matomo-analytics', false, 'matomo-analytics/language');
+}
+
+/*-------------------------------------------------------------
+ Name:      ajdg_matomo_dashboard_styles
+-------------------------------------------------------------*/
+function ajdg_matomo_dashboard_styles() {
+	wp_enqueue_style('ajdg-matomo-admin-stylesheet', plugins_url('library/dashboard.css', __FILE__));
+}
+
+/*-------------------------------------------------------------
+ Name:      ajdg_matomo_action_links
+-------------------------------------------------------------*/
+function ajdg_matomo_action_links($links) {
+	$links['ajdg-matomo-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=ajdg-matomo-tracker'), __('Settings', 'matomo-analytics'));
+	$links['ajdg-matomo-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', __('Support', 'matomo-analytics'));
+	$links['ajdg-matomo-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', __('More plugins', 'matomo-analytics'));
+
+	return $links;
+}
+
+/*-------------------------------------------------------------
  Name:      ajdg_matomo_save_settings
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_matomo_save_settings() {
 	if(wp_verify_nonce($_POST['matomo_nonce'],'matomo_nonce')) {
@@ -164,7 +178,7 @@ function ajdg_matomo_notifications_dashboard() {
 	if($review_banner != 1 AND $review_banner < (current_time('timestamp') - (7 * DAY_IN_SECONDS))) {
 		echo '<div class="ajdg-notification notice" style="">';
 		echo '	<div class="ajdg-notification-logo" style="background-image: url(\''.plugins_url('/images/notification.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-notification-message">Hey there <strong>'.$displayname.'</strong>! You have been using <strong>Matomo Tracker</strong> for a few days.<br />If you like the plugin, please <strong>write a review</strong>.<br />If you have questions, complaints or something else that does not belong in a review, please use the <a href="https://wordpress.org/support/plugin/matomo-analytics/">support forum</a>!</div>';
+		echo '	<div class="ajdg-notification-message">Hello <strong>'.$displayname.'</strong>! You have been using <strong>Matomo Tracker</strong> for a few days.<br />If you like the plugin, please <strong>write a review</strong>.<br />If you have questions, complaints or something else that does not belong in a review, please use the <a href="https://wordpress.org/support/plugin/matomo-analytics/">support forum</a>!</div>';
 		echo '	<div class="ajdg-notification-cta">';
 		echo '		<a href="https://wordpress.org/support/plugin/matomo-analytics/reviews?rate=5#postform" class="ajdg-notification-act button-primary">Write a Review</a>';
 		echo '		<a href="tools.php?page=matomo-tracker&hide=1" class="ajdg-notification-dismiss">Maybe later</a>';
@@ -176,11 +190,11 @@ function ajdg_matomo_notifications_dashboard() {
 	if($has_error) {
 		echo '<div class="ajdg-notification notice" style="">';
 		echo '	<div class="ajdg-notification-logo" style="background-image: url(\''.plugins_url('/images/notification.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-notification-message"><strong>Analytics for Matomo</strong> has detected '._n('one issue that requires', 'several issues that require', count($has_error), 'ajdg-matomo-tracker').' '.__('your attention:', 'ajdg-matomo-tracker').'<br />';
+		echo '	<div class="ajdg-notification-message"><strong>Analytics for Matomo</strong> has detected '._n('one issue that requires', 'several issues that require', count($has_error), 'matomo-analytics').' '.__('your attention:', 'matomo-analytics').'<br />';
 		foreach($has_error as $error => $message) {
 			echo '&raquo; '.$message.'<br />';
 		}
-		echo '	<a href="'.admin_url('/tools.php?page=ajdg-matomo-tracker').'">'.__('Check your settings', 'ajdg-matomo-tracker').'</a>!';
+		echo '	<a href="'.admin_url('/tools.php?page=ajdg-matomo-tracker').'">'.__('Check your settings', 'matomo-analytics').'</a>!';
 		echo '	</div>';
 		echo '</div>';
 	}
@@ -196,28 +210,16 @@ function ajdg_matomo_has_error() {
 	$track_active = get_option('ajdg_matomo_active');
 
 	if($track_active == 'yes' AND empty($siteid)) {
-		$error['matomo_site_id'] = __('You activated the Matomo Analytics Tracker but the Site ID is not set.', 'ajdg-matomo-tracker');
+		$error['matomo_site_id'] = __('You activated the Matomo Analytics Tracker but the Site ID is not set.', 'matomo-analytics');
 	}
 
 	if($track_active == 'yes' AND empty($siteurl)) {
-		$error['matomo_site_url'] = __('You activated the Matomo Analytics Tracker but the Site URL is not configured.', 'ajdg-matomo-tracker');
+		$error['matomo_site_url'] = __('You activated the Matomo Analytics Tracker but the Site URL is not configured.', 'matomo-analytics');
 	}
 
 	$error = (isset($error) AND is_array($error)) ? $error : false;
 
 	return $error;
-}
-
-/*-------------------------------------------------------------
- Name:      ajdg_matomo_action_links
- Since:		1.0
--------------------------------------------------------------*/
-function ajdg_matomo_action_links($links) {
-	$links['ajdg-matomo-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=ajdg-matomo-tracker'), 'Settings');
-	$links['ajdg-matomo-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/knowledgebase.php', 'Support');
-	$links['ajdg-matomo-ajdg'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/', 'ajdg.solutions');
-
-	return $links;
 }
 
 /*-------------------------------------------------------------
@@ -247,11 +249,11 @@ function ajdg_matomo_status($status) {
 
 	switch($status) {
 		case '100' :
-			echo '<div class="updated"><p>'.__('Settings saved', 'ajdg-matomo-tracker').'</p></div>';
+			echo '<div class="updated"><p>'.__('Settings saved', 'matomo-analytics').'</p></div>';
 		break;
 
 		default :
-			echo '<div class="error"><p>'.__('Unexpected error', 'ajdg-matomo-tracker').'</p></div>';
+			echo '<div class="error"><p>'.__('Unexpected error', 'matomo-analytics').'</p></div>';
 		break;
 	}
 }
@@ -261,10 +263,10 @@ function ajdg_matomo_status($status) {
  Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_matomo_nonce_error() {
-	echo '	<h2 style="text-align: center;">'.__('Oh no! Something went wrong!', 'ajdg-matomo-tracker').'</h2>';
-	echo '	<p style="text-align: center;">'.__('WordPress was unable to verify the authenticity of the url you have clicked. Verify if the url used is valid or log in via your browser.', 'ajdg-matomo-tracker').'</p>';
-	echo '	<p style="text-align: center;">'.__('If you have received the url you want to visit via email, you are being tricked!', 'ajdg-matomo-tracker').'</p>';
-	echo '	<p style="text-align: center;">'.__('Contact support if the issue persists:', 'ajdg-matomo-tracker').' <a href="https://support.ajdg.net/" title="AJdG Solutions Support" target="_blank">Support forum</a>.</p>';
+	echo '	<h2 style="text-align: center;">'.__('Oh no! Something went wrong!', 'matomo-analytics').'</h2>';
+	echo '	<p style="text-align: center;">'.__('WordPress was unable to verify the authenticity of the url you have clicked. Verify if the url used is valid or log in via your browser.', 'matomo-analytics').'</p>';
+	echo '	<p style="text-align: center;">'.__('If you have received the url you want to visit via email, you are being tricked!', 'matomo-analytics').'</p>';
+	echo '	<p style="text-align: center;">'.__('Contact support if the issue persists:', 'matomo-analytics').' <a href="https://support.ajdg.net/" title="AJdG Solutions Support" target="_blank">Support forum</a>.</p>';
 }
 
 /*-------------------------------------------------------------

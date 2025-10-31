@@ -2,18 +2,19 @@
 /*
 Plugin Name: Matomo Tracker
 Plugin URI: https://ajdg.solutions/product/matomo-tracker-for-wordpress/
+Description: Easily add the Matomo tracking code to your websites footer and manage options for it from the dashboard.
+Version: 1.3
+
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
-Description: Easily add the Matomo tracking code to your websites footer and manage options for it from the dashboard.
-Version: 1.2.11
-Text Domain: ajdg-matomo-tracker
-Domain Path: /languages/
+
 License: GPLv3
+Domain Path: /languages
 */
 
 /* ------------------------------------------------------------------------------------
 *  COPYRIGHT NOTICE
-*  Copyright 2020-2025 Arnan de Gans. All Rights Reserved.
+*  Copyright 2020-2026 Arnan de Gans. All Rights Reserved.
 
 *  COPYRIGHT NOTICES AND ALL THE COMMENTS SHOULD REMAIN INTACT.
 *  By using this code you agree to indemnify Arnan de Gans from any
@@ -30,10 +31,10 @@ require_once($plugin_folder.'/ajdg-matomo-tracker-functions.php');
 /*--- Core --------------------------------------------------*/
 register_activation_hook(__FILE__, 'ajdg_matomo_activate');
 register_deactivation_hook(__FILE__, 'ajdg_matomo_deactivate');
-load_plugin_textdomain('ajdg-matomo-tracker', false, dirname( plugin_basename( __FILE__ ) ) . '/languages');
 /*-----------------------------------------------------------*/
 
 /*--- Front end ---------------------------------------------*/
+add_action('init', 'ajdg_matomo_init');
 if(!is_admin()) {
 	$matomo_active = get_option('ajdg_matomo_active');
 	if($matomo_active == 'yes') add_action('wp_footer', 'ajdg_matomo_tracker');
@@ -77,7 +78,7 @@ function ajdg_matomo_dashboard() {
 	?>
 
 	<div class="wrap">
-		<h1><?php _e('Matomo Tracker', 'ajdg-matomo-tracker'); ?></h1>
+		<h1><?php _e('Matomo Tracker', 'matomo-analytics'); ?></h1>
 
 		<?php
 		if($status > 0) ajdg_matomo_status($status);

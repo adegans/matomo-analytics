@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: AJdG Matomo Tracker\n"
-"POT-Creation-Date: 2025-04-11 12:26-0600\n"
+"POT-Creation-Date: 2025-10-31 13:52-0700\n"
 "PO-Revision-Date: 2020-10-10 20:12-0500\n"
 "Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
 "Language-Team: Arnan de Gans <support@ajdg.solutions>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: ajdg-matomo-tracker-dashboard.php:30
+#: ajdg-matomo-tracker-dashboard.php:30 ajdg-matomo-tracker-functions.php:67
 msgid "Settings"
 msgstr ""
 
@@ -174,7 +174,7 @@ msgid "Save options"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: ajdg-matomo-tracker-dashboard.php:99 ajdg-matomo-tracker.php:80
+#: ajdg-matomo-tracker-dashboard.php:99 ajdg-matomo-tracker.php:81
 msgid "Matomo Tracker"
 msgstr ""
 
@@ -238,6 +238,10 @@ msgstr ""
 msgid "WordPress Plugin"
 msgstr ""
 
+#: ajdg-matomo-tracker-dashboard.php:119
+msgid "Starting at"
+msgstr ""
+
 #: ajdg-matomo-tracker-dashboard.php:121
 msgid ""
 "Place any kind of advert including those from Google Adsense or affiliate "
@@ -250,6 +254,10 @@ msgstr ""
 
 #: ajdg-matomo-tracker-dashboard.php:128
 msgid "WordPress and ClassicPress"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:129
+msgid "View now"
 msgstr ""
 
 #: ajdg-matomo-tracker-dashboard.php:131
@@ -276,55 +284,63 @@ msgid ""
 "support with Matomo itself check out their website."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:179
+#: ajdg-matomo-tracker-functions.php:68
+msgid "Support"
+msgstr ""
+
+#: ajdg-matomo-tracker-functions.php:69
+msgid "More plugins"
+msgstr ""
+
+#: ajdg-matomo-tracker-functions.php:193
 msgid "one issue that requires"
 msgid_plural "several issues that require"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ajdg-matomo-tracker-functions.php:179
+#: ajdg-matomo-tracker-functions.php:193
 msgid "your attention:"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:183
+#: ajdg-matomo-tracker-functions.php:197
 msgid "Check your settings"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:199
+#: ajdg-matomo-tracker-functions.php:213
 msgid "You activated the Matomo Analytics Tracker but the Site ID is not set."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:203
+#: ajdg-matomo-tracker-functions.php:217
 msgid ""
 "You activated the Matomo Analytics Tracker but the Site URL is not "
 "configured."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:250
+#: ajdg-matomo-tracker-functions.php:252
 msgid "Settings saved"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:254
+#: ajdg-matomo-tracker-functions.php:256
 msgid "Unexpected error"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:264
+#: ajdg-matomo-tracker-functions.php:266
 msgid "Oh no! Something went wrong!"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:265
+#: ajdg-matomo-tracker-functions.php:267
 msgid ""
 "WordPress was unable to verify the authenticity of the url you have clicked. "
 "Verify if the url used is valid or log in via your browser."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:266
+#: ajdg-matomo-tracker-functions.php:268
 msgid ""
 "If you have received the url you want to visit via email, you are being "
 "tricked!"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:267
+#: ajdg-matomo-tracker-functions.php:269
 msgid "Contact support if the issue persists:"
 msgstr ""
 
