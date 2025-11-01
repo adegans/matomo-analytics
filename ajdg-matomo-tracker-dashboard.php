@@ -143,9 +143,9 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 					<p><a href="http://ajdg.solutions/feed/" target="_blank" title="Subscribe to the AJdG Solutions RSS feed!" class="button-primary"><i class="icn-rss"></i><?php _e('Subscribe via RSS feed', 'matomo-analytics'); ?></a> <em><?php _e('No account required!', 'matomo-analytics'); ?></em></p>
 
 					<?php wp_widget_rss_output(array(
-						'url' => 'http://ajdg.solutions/feed/',
-						'items' => 5,
-						'show_summary' => 1,
+						'url' => array('http://ajdg.solutions/feed/', 'https://www.arnan.me/blog/feed/rss'),
+						'items' => 10,
+						'show_summary' => 0,
 						'show_author' => 0,
 						'show_date' => 1)
 					); ?>

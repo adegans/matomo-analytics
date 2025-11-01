@@ -3,7 +3,7 @@
 Plugin Name: Matomo Tracker
 Plugin URI: https://ajdg.solutions/product/matomo-tracker-for-wordpress/
 Description: Easily add the Matomo tracking code to your websites footer and manage options for it from the dashboard.
-Version: 1.3
+Version: 1.3.1
 
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/

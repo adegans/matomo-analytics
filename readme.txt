@@ -5,7 +5,7 @@ Donate link: https://www.arnan.me/donate.html
 Requires at least: 4.9
 Tested up to: 6.8.3
 Requires PHP: 7.4
-Stable tag: 1.2.11
+Stable tag: 1.3.1
 License: GPLv3
 
 The easiest way to track visitors in Matomo. No nonsense, just stats!
@@ -36,11 +36,11 @@ Check out Matomo here and register for an account on their website: [https://mat
 
 == Changelog ==
 
-= 1.3 - October 31, 2025 =
-* [fix] Translation domain not defined correctly
-* [change] Dashboard tweaks
-* [update] Action links
-* [i18n] Added missing translation strings
+= 1.3 & 1.3.1 - October 31, 2025 =
+* fix - Translation domain not defined correctly
+* change - Dashboard tweaks
+* update - Action links
+* i18n - Added missing translation strings
 
 = 1.2.11 - April 11, 2025 =
 * [tested] with WordPress 6.8
