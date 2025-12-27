@@ -1,15 +1,22 @@
 <?php
 /*
 Plugin Name: Matomo Tracker
-Plugin URI: https://ajdg.solutions/product/matomo-tracker-for-wordpress/
-Description: Easily add the Matomo tracking code to your websites footer and manage options for it from the dashboard.
-Version: 1.3.1
-
+Plugin URI: https://ajdg.solutions/product/matomo-tracker/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
-
+Description: The easiest way to track visitors in Matomo. No nonsense, just stats!
+Version: 1.4
 License: GPLv3
+
+Text Domain: matomo-analytics
 Domain Path: /languages
+
+Requires at least: 5.8
+Requires PHP: 8.0
+Requires CP: 2.0
+Tested CP: 2.6
+Premium URI: https://ajdg.solutions/
+GooseUp: compatible
 */
 
 /* ------------------------------------------------------------------------------------
@@ -24,17 +31,15 @@ Domain Path: /languages
 defined('ABSPATH') or die();
 
 /*--- Load Files --------------------------------------------*/
-$plugin_folder = plugin_dir_path(__FILE__);
-require_once($plugin_folder.'/ajdg-matomo-tracker-functions.php');
+include_once(plugin_dir_path(__FILE__).'/library/common.php');
+include_once(plugin_dir_path(__FILE__).'/ajdg-matomo-tracker-functions.php');
 /*-----------------------------------------------------------*/
 
 /*--- Core --------------------------------------------------*/
 register_activation_hook(__FILE__, 'ajdg_matomo_activate');
-register_deactivation_hook(__FILE__, 'ajdg_matomo_deactivate');
-/*-----------------------------------------------------------*/
-
-/*--- Front end ---------------------------------------------*/
+register_uninstall_hook(__FILE__, 'ajdg_matomo_deactivate');
 add_action('init', 'ajdg_matomo_init');
+
 if(!is_admin()) {
 	$matomo_active = get_option('ajdg_matomo_active');
 	if($matomo_active == 'yes') add_action('wp_footer', 'ajdg_matomo_tracker');
@@ -43,18 +48,16 @@ if(!is_admin()) {
 	$matomo_feed_impressions = get_option('ajdg_matomo_track_feed_impressions');
 	if($matomo_feed_impressions == 'yes') add_filter('the_content', 'ajdg_matomo_feed_impressions');
 }
-/*-----------------------------------------------------------*/
 
-/*--- Back end ----------------------------------------------*/
 if(is_admin()) {
 	ajdg_matomo_check_config();
 	/*--- Dashboard ---------------------------------------------*/
 	add_action('admin_menu', 'ajdg_matomo_dashboard_menu');
 	add_action('admin_print_styles', 'ajdg_matomo_dashboard_styles');
 	add_action('admin_notices', 'ajdg_matomo_notifications_dashboard');
-	add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), 'ajdg_matomo_action_links');
+	add_filter('plugin_row_meta', 'ajdg_matomo_meta_links', 10, 2);
 	/*--- Actions -----------------------------------------------*/
-	if(isset($_POST['matomo_save'])) add_action('init', 'ajdg_matomo_save_settings');
+	if(isset($_POST['matomo_save_settings'])) add_action('init', 'ajdg_matomo_save_settings');
 }
 /*-----------------------------------------------------------*/
 

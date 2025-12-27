@@ -1,12 +1,12 @@
 === Matomo Tracker ===
 Contributors: adegans
-Tags: analytics, web stats, stats, tracker, matomo
-Donate link: https://www.arnan.me/donate.html
-Requires at least: 4.9
-Tested up to: 6.8.3
-Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.4
+Tested up to: 6.9
+Requires PHP: 8.0
+Requires at least: 5.8
 License: GPLv3
+Tags: analytics, web stats, stats, tracker, matomo
+Donate link: https://www.arnan.me/donate/
 
 The easiest way to track visitors in Matomo. No nonsense, just stats!
 
@@ -35,6 +35,12 @@ Check out Matomo here and register for an account on their website: [https://mat
 **Matomo Tracker** is not affiliated with Matomo.
 
 == Changelog ==
+
+1.4 - December 21, 2025
+* Added - Support for updates through GooseUp
+* Added - Meta links
+* Update - Refreshed dashboard look
+* Removed - Action links
 
 = 1.3 & 1.3.1 - October 31, 2025 =
 * fix - Translation domain not defined correctly
@@ -132,7 +138,7 @@ As far as I know, Matomo is the #2 analytics platform in the world.
 In Matomo, which you need to have installed somewhere. You can host your own setup or use Matomo Cloud.
 
 = I need help with this plugin =
-You can ask your questions on my [support forum](https://ajdg.solutions/forums/forum/wordpress-plugins/?mtm_campaign=ajdg_matomo_tracker).
+Check out my [Support system](https://support.ajdg.net/knowledgebase.php)
 
 = My Matomo setup doesn't work, what do I do? =
 Contact [Matomo support](https://forum.matomo.org).
@@ -141,7 +147,7 @@ Contact [Matomo support](https://forum.matomo.org).
 I'm glad to say I don't.
 
 = This is cool, do you have more plugins? =
-Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/?mtm_campaign=ajdg_matomo_tracker).
+Yep, check out my website [AJdG Solutions](https://ajdg.solutions/plugins/)
 
 == Screenshots ==
 
