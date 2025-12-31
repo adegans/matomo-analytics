@@ -25,7 +25,6 @@ function ajdg_matomo_activate() {
 	update_option('ajdg_matomo_heartbeat_enable', 'no');
 	update_option('ajdg_matomo_wc_downloads', 'no');
 	update_option('ajdg_matomo_high_accuracy', 'no');
-	update_option('ajdg_matomo_hide_review', current_time('timestamp'));
 }
 
 /*-------------------------------------------------------------
@@ -43,14 +42,16 @@ function ajdg_matomo_deactivate() {
 	delete_option('ajdg_matomo_heartbeat_enable');
 	delete_option('ajdg_matomo_wc_downloads');
 	delete_option('ajdg_matomo_high_accuracy');
-	delete_option('ajdg_matomo_hide_review');
+	delete_option('ajdg_matomo_hide_review'); // Obsolete in 1.4
+	delete_option('ajdg_activate_matomo-analytics'); // Must match slug
+	delete_transient('ajdg_update_matomo-analytics'); // Must match slug
 }
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_init
 -------------------------------------------------------------*/
 function ajdg_matomo_init() {
-	load_plugin_textdomain('matomo-analytics', false, 'matomo-analytics/language');
+	load_plugin_textdomain('matomo-analytics', false, 'matomo-analytics/languages');
 }
 
 /*-------------------------------------------------------------
@@ -61,32 +62,22 @@ function ajdg_matomo_dashboard_styles() {
 }
 
 /*-------------------------------------------------------------
- Name:      ajdg_matomo_action_links
--------------------------------------------------------------*/
-function ajdg_matomo_action_links($links) {
-	$links['ajdg-matomo-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=ajdg-matomo-tracker'), __('Settings', 'matomo-analytics'));
-	$links['ajdg-matomo-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/', __('Support', 'matomo-analytics'));
-	$links['ajdg-matomo-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', __('More plugins', 'matomo-analytics'));
-
-	return $links;
-}
-
-/*-------------------------------------------------------------
  Name:      ajdg_matomo_save_settings
+ Purpose:	Save your settings
 -------------------------------------------------------------*/
 function ajdg_matomo_save_settings() {
-	if(wp_verify_nonce($_POST['matomo_nonce'],'matomo_nonce')) {
+	if(wp_verify_nonce($_POST['matomo_nonce'],'matomo-analytics')) {
 		$siteid = $siteurl = $track_active = $track_feed = $track_error_pages = $track_heartbeat = $track_high_accuracy = '';
 		if(isset($_POST['matomo_siteid'])) $siteid = sanitize_text_field(trim($_POST['matomo_siteid'], "\t\n "));
 		if(isset($_POST['matomo_siteurl'])) $siteurl = filter_var(trim($_POST['matomo_siteurl'], "\t\n "), FILTER_SANITIZE_URL);
-		if(isset($_POST['matomo_tracker_active'])) $track_active = sanitize_key($_POST['matomo_tracker_active']);
-		if(isset($_POST['matomo_feed_clicks'])) $track_feed_clicks = sanitize_key($_POST['matomo_feed_clicks']);
-		if(isset($_POST['matomo_error_pages'])) $track_error_pages = sanitize_key($_POST['matomo_error_pages']);
-		if(isset($_POST['matomo_incognito'])) $track_incognito = sanitize_key($_POST['matomo_incognito']);
-		if(isset($_POST['matomo_heartbeat'])) $track_heartbeat = sanitize_key($_POST['matomo_heartbeat']);
-		if(isset($_POST['matomo_wc_downloads'])) $track_wc_downloads = sanitize_key($_POST['matomo_wc_downloads']);
-		if(isset($_POST['matomo_feed_impressions'])) $track_feed_impressions = sanitize_key($_POST['matomo_feed_impressions']);
-		if(isset($_POST['matomo_accuracy'])) $track_high_accuracy = sanitize_key($_POST['matomo_accuracy']);
+		if(isset($_POST['matomo_tracker_active'])) $track_active = sanitize_text_field($_POST['matomo_tracker_active']);
+		if(isset($_POST['matomo_feed_clicks'])) $track_feed_clicks = sanitize_text_field($_POST['matomo_feed_clicks']);
+		if(isset($_POST['matomo_error_pages'])) $track_error_pages = sanitize_text_field($_POST['matomo_error_pages']);
+		if(isset($_POST['matomo_incognito'])) $track_incognito = sanitize_text_field($_POST['matomo_incognito']);
+		if(isset($_POST['matomo_heartbeat'])) $track_heartbeat = sanitize_text_field($_POST['matomo_heartbeat']);
+		if(isset($_POST['matomo_wc_downloads'])) $track_wc_downloads = sanitize_text_field($_POST['matomo_wc_downloads']);
+		if(isset($_POST['matomo_feed_impressions'])) $track_feed_impressions = sanitize_text_field($_POST['matomo_feed_impressions']);
+		if(isset($_POST['matomo_accuracy'])) $track_high_accuracy = sanitize_text_field($_POST['matomo_accuracy']);
 
 		// Cleanup
 		$siteid = (is_numeric($siteid)) ? $siteid : '';
@@ -127,7 +118,7 @@ function ajdg_matomo_save_settings() {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_check_config
- Since:		1.0
+ Purpose:	Reset missing options
 -------------------------------------------------------------*/
 function ajdg_matomo_check_config() {
 	$siteid = get_option('ajdg_matomo_siteid');
@@ -163,29 +154,9 @@ function ajdg_matomo_check_config() {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_notifications_dashboard
- Since:		1.0
+ Purpose:	Show dashboard errors
 -------------------------------------------------------------*/
 function ajdg_matomo_notifications_dashboard() {
-	global $current_user;
-
-	$displayname = (strlen($current_user->user_firstname) > 0) ? $current_user->user_firstname : $current_user->display_name;
-
-	if(isset($_GET['hide'])) {
-		if($_GET['hide'] == 1) update_option('ajdg_matomo_hide_review', 1);
-	}
-
-	$review_banner = get_option('ajdg_matomo_hide_review');
-	if($review_banner != 1 AND $review_banner < (current_time('timestamp') - (7 * DAY_IN_SECONDS))) {
-		echo '<div class="ajdg-notification notice" style="">';
-		echo '	<div class="ajdg-notification-logo" style="background-image: url(\''.plugins_url('/images/notification.png', __FILE__).'\');"><span></span></div>';
-		echo '	<div class="ajdg-notification-message">Hello <strong>'.$displayname.'</strong>! You have been using <strong>Matomo Tracker</strong> for a few days.<br />If you like the plugin, please <strong>write a review</strong>.<br />If you have questions, complaints or something else that does not belong in a review, please use the <a href="https://wordpress.org/support/plugin/matomo-analytics/">support forum</a>!</div>';
-		echo '	<div class="ajdg-notification-cta">';
-		echo '		<a href="https://wordpress.org/support/plugin/matomo-analytics/reviews?rate=5#postform" class="ajdg-notification-act button-primary">Write a Review</a>';
-		echo '		<a href="tools.php?page=matomo-tracker&hide=1" class="ajdg-notification-dismiss">Maybe later</a>';
-		echo '	</div>';
-		echo '</div>';
-	}
-
 	$has_error = ajdg_matomo_has_error();
 	if($has_error) {
 		echo '<div class="ajdg-notification notice" style="">';
@@ -202,7 +173,7 @@ function ajdg_matomo_notifications_dashboard() {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_has_error
- Since:		1.0
+ Purpose:	Output configuration errors
 -------------------------------------------------------------*/
 function ajdg_matomo_has_error() {
 	$siteid = get_option('ajdg_matomo_siteid');
@@ -224,7 +195,7 @@ function ajdg_matomo_has_error() {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_return
- Since:		1.0
+ Purpose:	Dashboard function for dashboard redirects
 -------------------------------------------------------------*/
 function ajdg_matomo_return($page, $status, $args = null) {
 
@@ -243,7 +214,7 @@ function ajdg_matomo_return($page, $status, $args = null) {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_status
- Since:		1.0
+ Purpose:	Dashboard function for saving settings
 -------------------------------------------------------------*/
 function ajdg_matomo_status($status) {
 
@@ -260,7 +231,6 @@ function ajdg_matomo_status($status) {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_nonce_error
- Since:		1.0
 -------------------------------------------------------------*/
 function ajdg_matomo_nonce_error() {
 	echo '	<h2 style="text-align: center;">'.__('Oh no! Something went wrong!', 'matomo-analytics').'</h2>';
@@ -271,7 +241,7 @@ function ajdg_matomo_nonce_error() {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_useragent_filter
- Since:		1.0
+ Purpose:	Basic bot filter
 -------------------------------------------------------------*/
 function ajdg_matomo_useragent_filter($user_agent) {
 	$blocked_user_agents = array(
@@ -296,7 +266,7 @@ function ajdg_matomo_useragent_filter($user_agent) {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_feed_impressions
- Since:		1.1
+ Purpose:	Add a image tracker to RSS articles
 -------------------------------------------------------------*/
 function ajdg_matomo_feed_impressions($content) {
 	global $post;
@@ -331,7 +301,7 @@ function ajdg_matomo_feed_impressions($content) {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_feed_campaign
- Since:		1.0
+ Purpose:	Add a tracker to RSS articles
 -------------------------------------------------------------*/
 function ajdg_matomo_feed_clicks($permalink) {
 	global $post;
@@ -366,7 +336,7 @@ function ajdg_matomo_feed_clicks($permalink) {
 
 /*-------------------------------------------------------------
  Name:      ajdg_matomo_tracker
- Since:		1.0
+ Purpose:	The tracker added to your site
 -------------------------------------------------------------*/
 function ajdg_matomo_tracker() {
 	$siteid = get_option('ajdg_matomo_siteid');
@@ -397,5 +367,62 @@ function ajdg_matomo_tracker() {
 	echo "</script>\n";
 	echo "<noscript><img src=\"$siteurl/matomo.php?idsite=$siteid&amp;rec=1\" style=\"border:0\" alt=\"\" /></noscript>\n";
 	echo "<!-- /Matomo -->\n\n";
+}
+
+/*-------------------------------------------------------------
+ Name:	  	ajdg_matomo_meta_links
+ Purpose:	Extra links on the plugins dashboard page
+-------------------------------------------------------------*/
+function ajdg_matomo_meta_links($links, $file) {
+	if($file !== 'matomo-analytics/ajdg-matomo-tracker.php') return $links;
+	
+	$links['ajdg-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=ajdg-matomo-tracker'), __('Settings', 'matomo-analytics'));
+	$links['ajdg-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/knowledgebase.php', __('Support', 'matomo-analytics'));
+	$links['ajdg-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', __('More plugins', 'matomo-analytics'));
+
+	return $links;
+}
+
+/*-------------------------------------------------------------
+ Name:	  	ajdg_matomo_fetch_rss_feed
+ Purpose:	RSS feed reader
+-------------------------------------------------------------*/
+function ajdg_matomo_fetch_rss_feed($url = '', $show_items = 6) {
+	// Check for errors
+	if(!is_numeric($show_items) OR $show_items < 1 OR $show_items > 20) {
+		$show_items = 6;
+	}
+
+	$rss = fetch_feed($url);
+
+	if(is_wp_error($rss)) {
+		$feed_output = '<p>The feed could not be fetched.</p>';
+	} else if(!$rss->get_item_quantity()) {
+		$feed_output = '<p>The feed has no items or could not be read.</p>';
+	} else {		
+		// Prepare output
+		$feed_output = '<ul>';
+		foreach($rss->get_items(0, $show_items) as $item) {
+			$link = $item->get_link();
+
+			while(!empty($link) AND stristr($link, 'http') !== $link) {
+				$link = substr($link, 1);
+			}
+
+			$link = esc_url(strip_tags($link));
+			$title = esc_html(trim(strip_tags($item->get_title())));
+			$date = $item->get_date('U');
+
+			if(empty($title)) $title = __('Untitled');
+			if($date) $date = ' <span class="rss-date">'.date_i18n(get_option('date_format'), $date).'</span>';
+
+			$feed_output .= (empty($link)) ? "<li>$title<br /><em>{$date}</em></li>" : "<li><a class='rsswidget' href='$link'>$title</a><br /><em>{$date}</em></li>";
+		}
+		$feed_output .= '</ul>';
+	}
+	unset($rss);
+
+	// Done!
+	return $feed_output;
 }
 ?>

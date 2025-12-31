@@ -1,6 +1,6 @@
 === Matomo Tracker ===
 Contributors: adegans
-Stable tag: 1.4
+Stable tag: 1.4.1
 Tested up to: 6.9
 Requires PHP: 8.0
 Requires at least: 5.8
@@ -36,10 +36,14 @@ Check out Matomo here and register for an account on their website: [https://mat
 
 == Changelog ==
 
+1.4.1 - December 31, 2025
+* Update - Removed dependency for common.php
+* Fixed - Meta links now work
+
 1.4 - December 21, 2025
+* Update - Refreshed dashboard look
 * Added - Support for updates through GooseUp
 * Added - Meta links
-* Update - Refreshed dashboard look
 * Removed - Action links
 
 = 1.3 & 1.3.1 - October 31, 2025 =

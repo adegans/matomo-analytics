@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Matomo Tracker
-Plugin URI: https://ajdg.solutions/product/matomo-tracker/
+Plugin URI: https://ajdg.solutions/product/paypal-surcharge-for-woocommerce/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
 Description: The easiest way to track visitors in Matomo. No nonsense, just stats!
-Version: 1.4
+Version: 1.4.1
 License: GPLv3
 
 Text Domain: matomo-analytics
@@ -13,9 +13,6 @@ Domain Path: /languages
 
 Requires at least: 5.8
 Requires PHP: 8.0
-Requires CP: 2.0
-Tested CP: 2.6
-Premium URI: https://ajdg.solutions/
 GooseUp: compatible
 */
 
@@ -31,7 +28,6 @@ GooseUp: compatible
 defined('ABSPATH') or die();
 
 /*--- Load Files --------------------------------------------*/
-include_once(plugin_dir_path(__FILE__).'/library/common.php');
 include_once(plugin_dir_path(__FILE__).'/ajdg-matomo-tracker-functions.php');
 /*-----------------------------------------------------------*/
 
