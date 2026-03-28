@@ -49,8 +49,8 @@
 		<p>Stay up-to-date with plugins: <a href="https://ajdg.solutions/feed/" target="_blank" title="Subscribe to the AJdG Solutions blog!" class="button-primary"><i class="icn-rss"></i> RSS</a></p>
 
 		<h3>Arnan's blog</h3>
-		<?php echo ajdg_matomo_fetch_rss_feed('https://www.arnan.me/feed/page:feed.xml', 3); ?>
-		<p>Subscribe to the blog of Arnan: <a href="https://www.arnan.me/feed/page:feed.xml" target="_blank" title="Subscribe to Arnan's blog!" class="button-primary"><i class="icn-rss"></i> RSS</a></p>
+		<?php echo ajdg_matomo_fetch_rss_feed('https://www.arnan.me/feed/', 3); ?>
+		<p>Subscribe to the blog of Arnan: <a href="https://www.arnan.me/feed/" target="_blank" title="Subscribe to Arnan's blog!" class="button-primary"><i class="icn-rss"></i> RSS</a></p>
 
 	</div>
 </div>

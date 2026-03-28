@@ -12,12 +12,13 @@ defined('ABSPATH') or die();
 
 $siteid = get_option('ajdg_matomo_siteid');
 $siteurl = get_option('ajdg_matomo_siteurl');
+$tracker_file = get_option('ajdg_matomo_tracker_file');
 $track_active = get_option('ajdg_matomo_active');
 $track_feed_clicks = get_option('ajdg_matomo_track_feed_clicks');
+$track_wc_downloads = get_option('ajdg_matomo_wc_downloads');
 $track_error_pages = get_option('ajdg_matomo_track_error_pages');
 $track_incognito = get_option('ajdg_matomo_track_incognito');
 $track_heartbeat = get_option('ajdg_matomo_heartbeat_enable');
-$track_wc_downloads = get_option('ajdg_matomo_wc_downloads');
 $track_feed_impressions = get_option('ajdg_matomo_track_feed_impressions');
 $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 ?>
@@ -34,7 +35,7 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 
 				<p><label for="matomo_siteid"><strong><?php _e('Your Matomo site ID:', 'matomo-analytics'); ?></strong><br /><input tabindex="1" name="matomo_siteid" type="text" class="search-input" style="width:100%;" value="<?php echo $siteid;?>" autocomplete="off" /><br /><small><?php _e('This is a number provided by your Matomo server.', 'matomo-analytics'); ?></small></label></p>
 	
-				<p><label for="matomo_siteurl"><strong><?php _e('Your matomo server address:', 'matomo-analytics'); ?></strong><br /><input tabindex="2" name="matomo_siteurl" type="text" class="search-input" style="width:100%;" value="<?php echo $siteurl;?>" autocomplete="off" /><br /><small><?php _e('The url to your Matomo server. You can also enter your cloud hosted Matomo address. <b>Examples:</b> https://matomo.yourdomain.com or https://yourdomain.com/matomo or https://yourname.matomo.cloud.', 'matomo-analytics'); ?></small></label></p>
+				<p><label for="matomo_siteurl"><strong><?php _e('Your matomo server address:', 'matomo-analytics'); ?></strong><br /><input tabindex="2" name="matomo_siteurl" type="text" class="search-input" style="width:100%;" value="<?php echo $siteurl;?>" autocomplete="off" /><br /><small><?php _e('The url to your Matomo server. You can also enter your cloud hosted Matomo address.', 'matomo-analytics'); ?><br /><?php _e('<b>Examples:</b> https://matomo.yourdomain.com or https://yourdomain.com/matomo or https://yourname.matomo.cloud.', 'matomo-analytics'); ?></small></label></p>
 	
 				<p><label for="matomo_tracker_active"><strong><?php _e('Enable tracking:', 'matomo-analytics'); ?></strong> <span class="alignright"><select name="matomo_tracker_active" tabindex="3">
 					<option <?php echo ($track_active == 'no') ? 'selected' : '';  ?> value="no"><?php _e('No', 'matomo-analytics'); ?></option>
@@ -53,13 +54,19 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 					<option <?php echo ($track_error_pages == 'no') ? 'selected' : '';  ?> value="no"><?php _e('No', 'matomo-analytics'); ?></option>
 					<option <?php echo ($track_error_pages == 'yes') ? 'selected' : '';  ?> value="yes"><?php _e('Yes', 'matomo-analytics'); ?></option>
 				</select></span>
-				<br /><small><?php _e('Monitor which urls redirect to a 404 error page. Discover which page the visitor tried to reach and where they came from. Look for "404/URL" items in the Behaviour > Page Titles section. This can help you find and fix old/invalid urls.', 'matomo-analytics'); ?></small></label></p>
+				<br /><small><?php _e('Monitor which urls redirect to a 404 error page. Discover which page the visitor tried to reach and where they came from.', 'matomo-analytics'); ?><br /><?php _e('Look for "404/URL" items in the Behaviour > Page Titles section. This can help you find and fix old/invalid urls.', 'matomo-analytics'); ?></small></label></p>
 
 				<p><label for="matomo_feed_clicks"><strong><?php _e('Record feed clickthrough:', 'matomo-analytics'); ?></strong> <span class="alignright"><select name="matomo_feed_clicks" tabindex="5">
 					<option <?php echo ($track_feed_clicks == 'no') ? 'selected' : '';  ?> value="no"><?php _e('No', 'matomo-analytics'); ?></option>
 					<option <?php echo ($track_feed_clicks == 'yes') ? 'selected' : '';  ?> value="yes"><?php _e('Yes', 'matomo-analytics'); ?></option>
 				</select></span>
-				<br /><small><?php _e('Record when visitors click through to your website from your RSS and Atom feeds. Look for the "feed_click" campaign in Acquisition > Campaigns. Includes a basic bot filter.', 'matomo-analytics'); ?></small></label></p>
+				<br /><small><?php _e('Record when visitors click through to your website from your RSS and Atom feeds.', 'matomo-analytics'); ?><br /><?php _e('Look for the "feed_click" campaign in Acquisition > Campaigns. Includes a basic bot filter.', 'matomo-analytics'); ?></small></label></p>
+
+				<p><label for="matomo_wc_downloads"><strong><?php _e('Track downloads in WooCommerce:', 'matomo-analytics'); ?></strong> <span class="alignright"><select name="matomo_wc_downloads" tabindex="9">
+					<option <?php echo ($track_wc_downloads == 'no') ? 'selected' : '';  ?> value="no"><?php _e('No', 'matomo-analytics'); ?></option>
+					<option <?php echo ($track_wc_downloads == 'yes') ? 'selected' : '';  ?> value="yes"><?php _e('Yes', 'matomo-analytics'); ?></option>
+				</select></span>
+				<br /><small><?php _e('Tracks downloads for WooCommerce downloadable products that get downloaded via the users account/dashboard.', 'matomo-analytics'); ?><br /><?php _e('Downloads show up in Behavior > Downloads. The url is unformatted because WooCommerce does not provide a way to do so.', 'matomo-analytics'); ?></small></label></p>
 
 			</div>
 		</div>
@@ -88,24 +95,24 @@ $track_high_accuracy = get_option('ajdg_matomo_high_accuracy');
 			<div class="ajdg-box-content">
 
 				<p><em><?php _e('You probably do <u>not</u> need these.', 'matomo-analytics'); ?></em></p>
-
-				<p><label for="matomo_wc_downloads"><strong><?php _e('Track downloads in WooCommerce:', 'matomo-analytics'); ?></strong> <span class="alignright"><select name="matomo_wc_downloads" tabindex="9">
-					<option <?php echo ($track_wc_downloads == 'no') ? 'selected' : '';  ?> value="no"><?php _e('No', 'matomo-analytics'); ?></option>
-					<option <?php echo ($track_wc_downloads == 'yes') ? 'selected' : '';  ?> value="yes"><?php _e('Yes', 'matomo-analytics'); ?></option>
-				</select></span>
-				<br /><small><?php _e('Tracks downloads for WooCommerce downloadable products that get downloaded via the users account/dashboard. Downloads show up in Behavior > Downloads. The url is unformatted because WooCommerce does not provide a way to do so.', 'matomo-analytics'); ?></small></label></p>
-
+	
 				<p><label for="matomo_feed_impressions"><strong><?php _e('Record feed views:', 'matomo-analytics'); ?></strong> <span class="alignright"><select name="matomo_feed_impressions" tabindex="10">
 					<option <?php echo ($track_feed_impressions == 'no') ? 'selected' : '';  ?> value="no"><?php _e('No', 'matomo-analytics'); ?></option>
 					<option <?php echo ($track_feed_impressions == 'yes') ? 'selected' : '';  ?> value="yes"><?php _e('Yes', 'matomo-analytics'); ?></option>
 				</select></span>
-				<br /><small><?php _e('Record when readers view your posts through your RSS and Atom feeds. Pageviews are counted as regular pageviews and as a campaign named "feed_impression" in Acquisition > Campaigns. Includes a basic bot filter. Does not track excerpts. <b>Caution:</b> Using this feature may offset your pageviews.', 'matomo-analytics'); ?></small></label></p>
+				<br /><small><?php _e('Record when readers view your posts through your RSS and Atom feeds. Pageviews are counted as regular pageviews and as a campaign named "feed_impression" in Acquisition > Campaigns. Includes a basic bot filter. Does not track excerpts.', 'matomo-analytics'); ?><br /><?php _e('<b>Caution:</b> Using this feature may offset your pageviews.', 'matomo-analytics'); ?></small></label></p>
 
 				<p><label for="matomo_accuracy"><strong><?php _e('Track in high accuracy mode:', 'matomo-analytics'); ?></strong> <span class="alignright"><select name="matomo_accuracy" tabindex="11">
 					<option <?php echo ($track_high_accuracy == 'no') ? 'selected' : '';  ?> value="no"><?php _e('No', 'matomo-analytics'); ?></option>
 					<option <?php echo ($track_high_accuracy == 'yes') ? 'selected' : '';  ?> value="yes"><?php _e('Yes', 'matomo-analytics'); ?></option>
 				</select></span>
-				<br /><small><?php _e('Track in a fast polling mode for higher accuracy for certain stats. This is useful if your outbound clicks and similar stats seem inconclusive. <b>Caution:</b> Using this feature may increase CPU usage on the visitors browser and on your server.', 'matomo-analytics'); ?></small></label></p>
+				<br /><small><?php _e('Track in a fast polling mode for higher accuracy for certain stats. This is useful if your outbound clicks and similar stats seem inconclusive.', 'matomo-analytics'); ?><br /><?php _e('<b>Caution:</b> Using this feature may increase CPU usage on the visitors browser and on your server.', 'matomo-analytics'); ?></small></label></p>
+
+				<p><label for="matomo_tracker_file"><strong><?php _e('Tracker file:', 'matomo-analytics'); ?></strong><br /><input tabindex="2" name="matomo_tracker_file" type="text" class="search-input" style="width:20%;" value="<?php echo $tracker_file;?>" autocomplete="off" />.php/.js (Default: matomo)<br /><small><?php _e('By default Matomo uses matomo.php and matomo.js. You can redirect the request to hide from things like ad blockers and analytics disrupting plugins.', 'matomo-analytics'); ?><br /><?php _e('If you change this, make sure you also create a redirect on your Matomo setup in the .htaccess file to receive the new names.', 'matomo-analytics'); ?></small></label></p>
+				
+				<p><strong><?php _e('How to redirect your tracker:', 'matomo-analytics'); ?></strong><br /><?php _e('Add the following 3 lines to the top of the .htaccess file of your Matomo setup. It will look something like:', 'matomo-analytics'); ?><br /><pre>RewriteEngine On
+RewriteRule ^NEW_VALUE\.php$ matomo.php [L]
+RewriteRule ^NEW_VALUE\.js$ matomo.js [L]</pre>Replace NEW_VALUE with the filename you define in the above text field.</p>
 
 			</div>
 		</div>

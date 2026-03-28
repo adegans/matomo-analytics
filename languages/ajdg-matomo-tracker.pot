@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: AJdG Matomo Tracker\n"
-"POT-Creation-Date: 2025-12-21 20:05-0700\n"
+"POT-Creation-Date: 2026-03-28 00:50-0700\n"
 "PO-Revision-Date: 2020-10-10 20:12-0500\n"
 "Last-Translator: Arnan de Gans <support@ajdg.solutions>\n"
 "Language-Team: Arnan de Gans <support@ajdg.solutions>\n"
@@ -78,88 +78,118 @@ msgstr ""
 msgid "Blogs & updates"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:32
+#: ajdg-matomo-tracker-dashboard.php:33
 msgid "Required Settings"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:35
+#: ajdg-matomo-tracker-dashboard.php:36
 msgid "Your Matomo site ID:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:35
+#: ajdg-matomo-tracker-dashboard.php:36
 msgid "This is a number provided by your Matomo server."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:37
+#: ajdg-matomo-tracker-dashboard.php:38
 msgid "Your matomo server address:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:37
+#: ajdg-matomo-tracker-dashboard.php:38
 msgid ""
 "The url to your Matomo server. You can also enter your cloud hosted Matomo "
-"address. <b>Examples:</b> https://matomo.yourdomain.com or https://"
-"yourdomain.com/matomo or https://yourname.matomo.cloud."
+"address."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:39
+#: ajdg-matomo-tracker-dashboard.php:38
+msgid ""
+"<b>Examples:</b> https://matomo.yourdomain.com or https://yourdomain.com/"
+"matomo or https://yourname.matomo.cloud."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:40
 msgid "Enable tracking:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:40 ajdg-matomo-tracker-dashboard.php:53
-#: ajdg-matomo-tracker-dashboard.php:59 ajdg-matomo-tracker-dashboard.php:72
-#: ajdg-matomo-tracker-dashboard.php:78 ajdg-matomo-tracker-dashboard.php:93
-#: ajdg-matomo-tracker-dashboard.php:99 ajdg-matomo-tracker-dashboard.php:105
+#: ajdg-matomo-tracker-dashboard.php:41 ajdg-matomo-tracker-dashboard.php:54
+#: ajdg-matomo-tracker-dashboard.php:60 ajdg-matomo-tracker-dashboard.php:66
+#: ajdg-matomo-tracker-dashboard.php:79 ajdg-matomo-tracker-dashboard.php:85
+#: ajdg-matomo-tracker-dashboard.php:100 ajdg-matomo-tracker-dashboard.php:106
 msgid "No"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:41 ajdg-matomo-tracker-dashboard.php:54
-#: ajdg-matomo-tracker-dashboard.php:60 ajdg-matomo-tracker-dashboard.php:73
-#: ajdg-matomo-tracker-dashboard.php:79 ajdg-matomo-tracker-dashboard.php:94
-#: ajdg-matomo-tracker-dashboard.php:100 ajdg-matomo-tracker-dashboard.php:106
+#: ajdg-matomo-tracker-dashboard.php:42 ajdg-matomo-tracker-dashboard.php:55
+#: ajdg-matomo-tracker-dashboard.php:61 ajdg-matomo-tracker-dashboard.php:67
+#: ajdg-matomo-tracker-dashboard.php:80 ajdg-matomo-tracker-dashboard.php:86
+#: ajdg-matomo-tracker-dashboard.php:101 ajdg-matomo-tracker-dashboard.php:107
 msgid "Yes"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:43
+#: ajdg-matomo-tracker-dashboard.php:44
 msgid ""
 "Enabling this places the Matomo tracking code in the footer of your website."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:49
+#: ajdg-matomo-tracker-dashboard.php:50
 msgid "Additional options"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:52
+#: ajdg-matomo-tracker-dashboard.php:53
 msgid "Monitor 404 pages:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:56
+#: ajdg-matomo-tracker-dashboard.php:57
 msgid ""
 "Monitor which urls redirect to a 404 error page. Discover which page the "
-"visitor tried to reach and where they came from. Look for \"404/URL\" items "
-"in the Behaviour > Page Titles section. This can help you find and fix old/"
-"invalid urls."
+"visitor tried to reach and where they came from."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:58
+#: ajdg-matomo-tracker-dashboard.php:57
+msgid ""
+"Look for \"404/URL\" items in the Behaviour > Page Titles section. This can "
+"help you find and fix old/invalid urls."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:59
 msgid "Record feed clickthrough:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:62
+#: ajdg-matomo-tracker-dashboard.php:63
 msgid ""
 "Record when visitors click through to your website from your RSS and Atom "
-"feeds. Look for the \"feed_click\" campaign in Acquisition > Campaigns. "
-"Includes a basic bot filter."
+"feeds."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:68
-msgid "Privacy options"
+#: ajdg-matomo-tracker-dashboard.php:63
+msgid ""
+"Look for the \"feed_click\" campaign in Acquisition > Campaigns. Includes a "
+"basic bot filter."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:71
-msgid "Respect DoNotTrack:"
+#: ajdg-matomo-tracker-dashboard.php:65
+msgid "Track downloads in WooCommerce:"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:69
+msgid ""
+"Tracks downloads for WooCommerce downloadable products that get downloaded "
+"via the users account/dashboard."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:69
+msgid ""
+"Downloads show up in Behavior > Downloads. The url is unformatted because "
+"WooCommerce does not provide a way to do so."
 msgstr ""
 
 #: ajdg-matomo-tracker-dashboard.php:75
+msgid "Privacy options"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:78
+msgid "Respect DoNotTrack:"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:82
 msgid ""
 "Do not track visitors who sent a DoNotTrack request (incognito mode). "
 "Setting this to \"Yes\" will respect DoNotTrack requests but results in less "
@@ -168,81 +198,92 @@ msgid ""
 "anonymize the recorded data in your Matomo settings as a courtesy."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:77
+#: ajdg-matomo-tracker-dashboard.php:84
 msgid "Track time on site:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:81
+#: ajdg-matomo-tracker-dashboard.php:88
 msgid ""
 "Periodically check on visitors to see if they are still there. This results "
 "in time visitors spent on pages is recorded with greater accuracy. Time "
 "spent on pages is visible on many dashboards throughout Matomo."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:87
+#: ajdg-matomo-tracker-dashboard.php:94
 msgid "Advanced options"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:90
+#: ajdg-matomo-tracker-dashboard.php:97
 msgid "You probably do <u>not</u> need these."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:92
-msgid "Track downloads in WooCommerce:"
-msgstr ""
-
-#: ajdg-matomo-tracker-dashboard.php:96
-msgid ""
-"Tracks downloads for WooCommerce downloadable products that get downloaded "
-"via the users account/dashboard. Downloads show up in Behavior > Downloads. "
-"The url is unformatted because WooCommerce does not provide a way to do so."
-msgstr ""
-
-#: ajdg-matomo-tracker-dashboard.php:98
+#: ajdg-matomo-tracker-dashboard.php:99
 msgid "Record feed views:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:102
+#: ajdg-matomo-tracker-dashboard.php:103
 msgid ""
 "Record when readers view your posts through your RSS and Atom feeds. "
 "Pageviews are counted as regular pageviews and as a campaign named "
 "\"feed_impression\" in Acquisition > Campaigns. Includes a basic bot filter. "
-"Does not track excerpts. <b>Caution:</b> Using this feature may offset your "
-"pageviews."
+"Does not track excerpts."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:104
+#: ajdg-matomo-tracker-dashboard.php:103
+msgid "<b>Caution:</b> Using this feature may offset your pageviews."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:105
 msgid "Track in high accuracy mode:"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:108
+#: ajdg-matomo-tracker-dashboard.php:109
 msgid ""
 "Track in a fast polling mode for higher accuracy for certain stats. This is "
-"useful if your outbound clicks and similar stats seem inconclusive. "
+"useful if your outbound clicks and similar stats seem inconclusive."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:109
+msgid ""
 "<b>Caution:</b> Using this feature may increase CPU usage on the visitors "
 "browser and on your server."
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:115
+#: ajdg-matomo-tracker-dashboard.php:111
+msgid "Tracker file:"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:111
+msgid ""
+"By default Matomo uses matomo.php and matomo.js. You can redirect the "
+"request to hide from things like ad blockers and analytics disrupting "
+"plugins."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:111
+msgid ""
+"If you change this, make sure you also create a redirect on your Matomo "
+"setup in the .htaccess file to receive the new names."
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:113
+msgid "How to redirect your tracker:"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:113
+msgid ""
+"Add the following 3 lines to the top of the .htaccess file of your Matomo "
+"setup. It will look something like:"
+msgstr ""
+
+#: ajdg-matomo-tracker-dashboard.php:122
 msgid "Save settings"
 msgstr ""
 
-#: ajdg-matomo-tracker-dashboard.php:126
+#: ajdg-matomo-tracker-dashboard.php:133
 msgid ""
 "Arnan de Gans and \"Matomo Tracker\" are not affiliated with Matomo. For "
 "support with Matomo itself check out their website."
-msgstr ""
-
-#: ajdg-matomo-tracker-functions.php:71
-msgid "Settings"
-msgstr ""
-
-#: ajdg-matomo-tracker-functions.php:72
-msgid "Support"
-msgstr ""
-
-#: ajdg-matomo-tracker-functions.php:73
-msgid "More plugins"
 msgstr ""
 
 #: ajdg-matomo-tracker-functions.php:175
@@ -259,51 +300,63 @@ msgstr ""
 msgid "Check your settings"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:194
+#: ajdg-matomo-tracker-functions.php:195
 msgid "You activated the Matomo Analytics Tracker but the Site ID is not set."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:198
+#: ajdg-matomo-tracker-functions.php:199
 msgid ""
 "You activated the Matomo Analytics Tracker but the Site URL is not "
 "configured."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:231
+#: ajdg-matomo-tracker-functions.php:234
 msgid "Settings saved"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:235
+#: ajdg-matomo-tracker-functions.php:238
 msgid "Unexpected error"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:244
+#: ajdg-matomo-tracker-functions.php:247
 msgid "Oh no! Something went wrong!"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:245
+#: ajdg-matomo-tracker-functions.php:248
 msgid ""
 "WordPress was unable to verify the authenticity of the url you have clicked. "
 "Verify if the url used is valid or log in via your browser."
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:246
+#: ajdg-matomo-tracker-functions.php:249
 msgid ""
 "If you have received the url you want to visit via email, you are being "
 "tricked!"
 msgstr ""
 
-#: ajdg-matomo-tracker-functions.php:247
+#: ajdg-matomo-tracker-functions.php:250
 msgid "Contact support if the issue persists:"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-#: ajdg-matomo-tracker.php:84
-msgid "Matomo Tracker"
+#: ajdg-matomo-tracker-functions.php:391
+msgid "Support"
 msgstr ""
 
-#: library/common.php:59
+#: ajdg-matomo-tracker-functions.php:392
+msgid "More plugins"
+msgstr ""
+
+#: ajdg-matomo-tracker-functions.php:402
+msgid "Settings"
+msgstr ""
+
+#: ajdg-matomo-tracker-functions.php:436
 msgid "Untitled"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: ajdg-matomo-tracker.php:81
+msgid "Matomo Tracker"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

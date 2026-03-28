@@ -22,6 +22,7 @@ function ajdg_matomo_activate() {
 	update_option('ajdg_matomo_track_feed_impressions', 'no');
 	update_option('ajdg_matomo_track_error_pages', 'no');
 	update_option('ajdg_matomo_track_incognito', 'no');
+	update_option('ajdg_matomo_tracker_file', 'matomo');
 	update_option('ajdg_matomo_heartbeat_enable', 'no');
 	update_option('ajdg_matomo_wc_downloads', 'no');
 	update_option('ajdg_matomo_high_accuracy', 'no');
@@ -41,6 +42,7 @@ function ajdg_matomo_deactivate() {
 	delete_option('ajdg_matomo_track_incognito');
 	delete_option('ajdg_matomo_heartbeat_enable');
 	delete_option('ajdg_matomo_wc_downloads');
+	delete_option('ajdg_matomo_tracker_file');
 	delete_option('ajdg_matomo_high_accuracy');
 	delete_option('ajdg_matomo_hide_review'); // Obsolete in 1.4
 	delete_option('ajdg_activate_matomo-analytics'); // Must match slug
@@ -76,6 +78,7 @@ function ajdg_matomo_save_settings() {
 		if(isset($_POST['matomo_incognito'])) $track_incognito = sanitize_text_field($_POST['matomo_incognito']);
 		if(isset($_POST['matomo_heartbeat'])) $track_heartbeat = sanitize_text_field($_POST['matomo_heartbeat']);
 		if(isset($_POST['matomo_wc_downloads'])) $track_wc_downloads = sanitize_text_field($_POST['matomo_wc_downloads']);
+		if(isset($_POST['matomo_tracker_file'])) $tracker_file = sanitize_text_field($_POST['matomo_tracker_file']);
 		if(isset($_POST['matomo_feed_impressions'])) $track_feed_impressions = sanitize_text_field($_POST['matomo_feed_impressions']);
 		if(isset($_POST['matomo_accuracy'])) $track_high_accuracy = sanitize_text_field($_POST['matomo_accuracy']);
 
@@ -86,6 +89,10 @@ function ajdg_matomo_save_settings() {
 		$siteurl = preg_replace('/\?idsite=\d/i', '', $siteurl); // Remove idsite parameter
 		$siteurl = trim($siteurl, "\/"); // Remove trailing slashes
 		$siteurl = (strlen($siteurl) > 0) ? $siteurl : '';
+
+		$tracker_file = str_ireplace(array('.php', '.js'), '', strtolower($tracker_file)); // Remove extension
+		$tracker_file = trim($tracker_file, "\/"); // Remove trailing slashes
+		$tracker_file = (strlen($tracker_file) > 0) ? $tracker_file : 'matomo';
 
 		$track_active = ($track_active == 'yes') ? 'yes' : 'no';
 		$track_feed_clicks = ($track_feed_clicks == 'yes') ? 'yes' : 'no';
@@ -105,6 +112,7 @@ function ajdg_matomo_save_settings() {
 		update_option('ajdg_matomo_track_incognito', $track_incognito);
 		update_option('ajdg_matomo_heartbeat_enable', $track_heartbeat);
 		update_option('ajdg_matomo_wc_downloads', $track_wc_downloads);
+		update_option('ajdg_matomo_tracker_file', $tracker_file);
 		update_option('ajdg_matomo_track_feed_impressions', $track_feed_impressions);
 		update_option('ajdg_matomo_high_accuracy', $track_high_accuracy);
 
@@ -144,6 +152,9 @@ function ajdg_matomo_check_config() {
 
 	$track_wc_downloads = get_option('ajdg_matomo_wc_downloads');
 	if(!$track_wc_downloads) update_option('ajdg_matomo_wc_downloads', 'no');
+
+	$tracker_file = get_option('ajdg_matomo_tracker_file');
+	if(!$tracker_file) update_option('ajdg_matomo_tracker_file', 'matomo');
 
 	$track_feed_impressions = get_option('ajdg_matomo_track_feed_impressions');
 	if(!$track_feed_impressions) update_option('ajdg_matomo_track_feed_impressions', 'no');
@@ -341,6 +352,7 @@ function ajdg_matomo_feed_clicks($permalink) {
 function ajdg_matomo_tracker() {
 	$siteid = get_option('ajdg_matomo_siteid');
 	$siteurl = get_option('ajdg_matomo_siteurl');
+	$tracker_file = get_option('ajdg_matomo_tracker_file');
 
 	$track_error_pages = get_option('ajdg_matomo_track_error_pages');
 	$track_incognito = get_option('ajdg_matomo_track_incognito');
@@ -359,13 +371,13 @@ function ajdg_matomo_tracker() {
 	echo "_paq.push(['trackPageView']);\n";
 	echo "_paq.push(['enableLinkTracking']);\n";
 	echo "(function() {\n";
-	echo "\t_paq.push(['setTrackerUrl', '$siteurl/matomo.php']);\n";
+	echo "\t_paq.push(['setTrackerUrl', '$siteurl/$tracker_file.php']);\n";
 	echo "\t_paq.push(['setSiteId', '$siteid']);\n";
 	echo "\tvar d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n";
-	echo "\tg.type='text/javascript'; g.async=true; g.defer=true; g.src='$siteurl/matomo.js'; s.parentNode.insertBefore(g,s);\n";
+	echo "\tg.type='text/javascript'; g.async=true; g.defer=true; g.src='$siteurl/$tracker_file.js'; s.parentNode.insertBefore(g,s);\n";
 	echo "})();\n";
 	echo "</script>\n";
-	echo "<noscript><img src=\"$siteurl/matomo.php?idsite=$siteid&amp;rec=1\" style=\"border:0\" alt=\"\" /></noscript>\n";
+	echo "<noscript><img src=\"$siteurl/$tracker_file.php?idsite=$siteid&amp;rec=1\" style=\"border:0\" alt=\"\" /></noscript>\n";
 	echo "<!-- /Matomo -->\n\n";
 }
 
@@ -376,13 +388,21 @@ function ajdg_matomo_tracker() {
 function ajdg_matomo_meta_links($links, $file) {
 	if($file !== 'matomo-analytics/ajdg-matomo-tracker.php') return $links;
 	
-	$links['ajdg-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=ajdg-matomo-tracker'), __('Settings', 'matomo-analytics'));
 	$links['ajdg-help'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://support.ajdg.net/knowledgebase.php', __('Support', 'matomo-analytics'));
 	$links['ajdg-more'] = sprintf('<a href="%s" target="_blank">%s</a>', 'https://ajdg.solutions/plugins/', __('More plugins', 'matomo-analytics'));
 
 	return $links;
 }
 
+/*-------------------------------------------------------------
+ Name:      ajdg_matomo_action_links
+ Purpose:	Extra links on the plugins dashboard page
+-------------------------------------------------------------*/
+function ajdg_matomo_action_links($links) {
+	$links['ajdg-settings'] = sprintf('<a href="%s">%s</a>', admin_url('tools.php?page=ajdg-matomo-tracker'), __('Settings', 'matomo-analytics'));
+
+	return $links;
+}
 /*-------------------------------------------------------------
  Name:	  	ajdg_matomo_fetch_rss_feed
  Purpose:	RSS feed reader

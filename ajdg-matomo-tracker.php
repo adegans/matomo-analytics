@@ -5,7 +5,7 @@ Plugin URI: https://ajdg.solutions/product/paypal-surcharge-for-woocommerce/
 Author: Arnan de Gans
 Author URI: https://www.arnan.me/
 Description: The easiest way to track visitors in Matomo. No nonsense, just stats!
-Version: 1.4.1
+Version: 1.5
 License: GPLv3
 
 Text Domain: matomo-analytics
@@ -52,6 +52,7 @@ if(is_admin()) {
 	add_action('admin_print_styles', 'ajdg_matomo_dashboard_styles');
 	add_action('admin_notices', 'ajdg_matomo_notifications_dashboard');
 	add_filter('plugin_row_meta', 'ajdg_matomo_meta_links', 10, 2);
+	add_filter('plugin_action_links_' . plugin_basename( __FILE__ ), 'ajdg_matomo_action_links');
 	/*--- Actions -----------------------------------------------*/
 	if(isset($_POST['matomo_save_settings'])) add_action('init', 'ajdg_matomo_save_settings');
 }
