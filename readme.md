@@ -6,6 +6,7 @@ The easiest way to track visitors in Matomo. No nonsense, just stats!
 View on: [ajdg.solutions](https://ajdg.solutions/product/matomo-tracker/) ~ [WordPres.org](https://wordpress.org/plugins/matomo-analytics/)
 
 ## Description
+
 Track all the stats you need. That's the goal of **Matomo Tracker**. And it doesn't get any more simple than that.
 While other plugins are bloated with all kinds of barely-used features or add bulky dashboards. **Matomo Tracker** does not.
 
@@ -30,9 +31,20 @@ Check out Matomo here and register for an account on their website: [https://mat
 **Matomo Tracker** is not affiliated with Matomo.
 
 ## Installation
+
 1. Navigate to your WordPress or ClassicPress dashboard.
 2. Navigate to the Plugins page and click 'Add New'.
 3. Search for 'Arnan matomo' or 'Matomo Analytics' in the plugin search
 4. Click install on the 'Matomo Analytics' plugin created by 'Arnan de Gans'.
 5. Once installed, activate the plugin and you're ready to go.
 6. Navigate to Tools > Matomo Analytics in your dashboard to set up tracking for your Matomo installation.
+
+## GooseUp compatible
+
+Matomo Tracker is compatible with the GooseUp Update System.  
+Find out more and [download the plugin](https://ajdg.solutions/product/gooseup/) from my website.
+
+## Is Matomo Tracker useful for you?
+
+If you find Matomo Tracker useful and want to help out, please consider a small [token of thanks](https://www.arnan.me/donate/)!  
+Your donations will help as motivation. Thank you for your support!  
